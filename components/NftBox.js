@@ -45,10 +45,10 @@ export default function NftBox({ price, nftAddress, tokenId, seller }) {
   async function getTokenURI() {
     const network = "goerli";
     const provider = new ethers.providers.WebSocketProvider(
-      "wss://eth-sepolia.g.alchemy.com/v2/pDnsHSqJomhXLGvW0BD406tousjSDigY"
+      "wss://eth-goerli.g.alchemy.com/v2/6WDKZRPFR3JfUlvLpczZ491-CvXm-jhc"
     );
 
-    const contractAddress = "0xAA9833b34E38cb997898F420a3838B32C6E544D2";
+    const contractAddress = "0xee92FE8CE5ac8CD7D30882A6540128bEE196b241";
     const contractAbi = basicNftabi;
     const contract = new ethers.Contract(
       contractAddress,
@@ -109,7 +109,8 @@ export default function NftBox({ price, nftAddress, tokenId, seller }) {
         });
         await new Promise((resolve) => setTimeout(resolve, 6000));
         if (process.env.NODE_ENV === "production") {
-          window.location.href = "https://sellandbuyyournextnft.netlify.app/";
+          window.location.href =
+            "https://nftmarketplace-databasedecentralized.netlify.app/";
         } else {
           window.location.href = "http://localhost:3000/";
         }
@@ -148,7 +149,8 @@ export default function NftBox({ price, nftAddress, tokenId, seller }) {
       });
       await new Promise((resolve) => setTimeout(resolve, 6000));
       if (process.env.NODE_ENV === "production") {
-        window.location.href = "https://sellandbuyyournextnft.netlify.app/";
+        window.location.href =
+          "https://nftmarketplace-databasedecentralized.netlify.app/";
       } else {
         window.location.href = "http://localhost:3000/";
       }

@@ -35,7 +35,8 @@ export default function WithdrawProceeds() {
       });
       await new Promise((resolve) => setTimeout(resolve, 6000));
       if (process.env.NODE_ENV === "production") {
-        window.location.href = "https://sellandbuyyournextnft.netlify.app/";
+        window.location.href =
+          "https://nftmarketplace-databasedecentralized.netlify.app/";
       } else {
         window.location.href = "http://localhost:3000/";
       }
