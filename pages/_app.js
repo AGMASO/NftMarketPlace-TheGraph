@@ -14,7 +14,7 @@ import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
 //Mira la documentacion para saber que parametros incluir aqui
 const client = new ApolloClient({
   cache: new InMemoryCache(),
-  uri: "https://api.studio.thegraph.com/query/45112/nftmarketplace/v0.0.1",
+  uri: "https://api.studio.thegraph.com/query/45112/nft-marketplace-descentralized/v0.0.1",
 });
 
 export default function App({ Component, pageProps }) {

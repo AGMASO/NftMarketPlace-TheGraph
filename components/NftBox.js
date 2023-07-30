@@ -1,12 +1,10 @@
 import { ethers } from "ethers";
 import { useEffect, useState } from "react";
 import { useWeb3Contract, useMoralis } from "react-moralis";
+import Image from "next/image";
+import { Button, Card, useNotification, Skeleton } from "web3uikit";
 
 import { abi, basicNftabi, contractAddresses } from "../constants/index";
-import Image from "next/image";
-
-import { Button, Card, useNotification } from "web3uikit";
-
 //Importamos el componente modal UpdateListingModal
 import UpdateListingModal from "./UpdateListingModal";
 //Importamos la function de buyItem
@@ -45,10 +43,10 @@ export default function NftBox({ price, nftAddress, tokenId, seller }) {
   async function getTokenURI() {
     const network = "goerli";
     const provider = new ethers.providers.WebSocketProvider(
-      "wss://eth-goerli.g.alchemy.com/v2/6WDKZRPFR3JfUlvLpczZ491-CvXm-jhc"
+      "wss://eth-sepolia.g.alchemy.com/v2/pDnsHSqJomhXLGvW0BD406tousjSDigY"
     );
 
-    const contractAddress = "0xee92FE8CE5ac8CD7D30882A6540128bEE196b241";
+    const contractAddress = "0xC116D8041A820584FEd4f6C81EE8a29a1d696D40";
     const contractAbi = basicNftabi;
     const contract = new ethers.Contract(
       contractAddress,
@@ -196,7 +194,39 @@ export default function NftBox({ price, nftAddress, tokenId, seller }) {
             </div>
           </div>
         ) : (
-          <div> Is Loading...</div>
+          <div role="status" class="space-y-2.5 animate-pulse max-w-lg">
+            <div class="flex items-center w-full space-x-2">
+              <div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-32"></div>
+              <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24"></div>
+              <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-full"></div>
+            </div>
+            <div class="flex items-center w-full space-x-2 max-w-[480px]">
+              <div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-full"></div>
+              <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-full"></div>
+              <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24"></div>
+            </div>
+            <div class="flex items-center w-full space-x-2 max-w-[400px]">
+              <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-full"></div>
+              <div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-80"></div>
+              <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-full"></div>
+            </div>
+            <div class="flex items-center w-full space-x-2 max-w-[480px]">
+              <div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-full"></div>
+              <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-full"></div>
+              <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24"></div>
+            </div>
+            <div class="flex items-center w-full space-x-2 max-w-[440px]">
+              <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-32"></div>
+              <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24"></div>
+              <div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-full"></div>
+            </div>
+            <div class="flex items-center w-full space-x-2 max-w-[360px]">
+              <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-full"></div>
+              <div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-80"></div>
+              <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-full"></div>
+            </div>
+            <span class="sr-only">Loading...</span>
+          </div>
         )}
       </div>
     </div>

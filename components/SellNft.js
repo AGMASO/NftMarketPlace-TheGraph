@@ -15,7 +15,7 @@ export default function SellNft() {
     //porque si no es un big Object que no qeuremsos
     const price = ethers.utils.parseUnits(data.data[2].inputResult, "ether");
 
-    const nftMarketplace = "0x1e780ba53a4421FFd8A8871c9B746d62258d8512";
+    const nftMarketplace = "0xaDa9884c1299df503D91D36Ee9CD7fD6EBBACD44";
     try {
       await approveAndList(nftAddress, nftMarketplace, tokenId);
       dispatch({

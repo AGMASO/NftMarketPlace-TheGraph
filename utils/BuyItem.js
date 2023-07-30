@@ -17,7 +17,7 @@ export default async function buyItem(nftAddress, tokenId, price) {
   console.log(signer);
 
   console.log("estoy trabajando");
-  const contractAddress = "0x1e780ba53a4421FFd8A8871c9B746d62258d8512";
+  const contractAddress = "0xaDa9884c1299df503D91D36Ee9CD7fD6EBBACD44";
   // Estimate the gas required for the transaction
 
   const contract = new ethers.Contract(contractAddress, abi, signer);

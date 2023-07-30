@@ -41,15 +41,51 @@ export default function Home() {
             <h1 className="py-10 px-4 font-extralight text-5xl text-white text-center">
               Welcome to the real decentralized Nfts Market
             </h1>
-            <h2 className="py-10 px-4 font-bold text-2xl text-white text-center">
-              Recently Listed NFTS
-            </h2>
+            <div className="">
+              {isWeb3Enabled && data ? (
+                <h2 className=" text-5xl text-white text-center font-bold">
+                  Listed NFTs
+                </h2>
+              ) : (
+                ""
+              )}
+            </div>
 
-            <div className="flex flex-wrap">
+            <div className="flex flex-wrap justify-center">
               {isWeb3Enabled ? (
                 loading || !data ? (
-                  <div class="fixed top-20 left-0 w-screen h-screen flex justify-center items-center">
-                    <div class="border-4 border-t-4 border-gray-200 rounded-full w-16 h-16 animate-spin"></div>
+                  <div role="status" class="space-y-2.5 animate-pulse max-w-lg">
+                    <div class="flex items-center w-full space-x-2">
+                      <div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-32"></div>
+                      <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24"></div>
+                      <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-full"></div>
+                    </div>
+                    <div class="flex items-center w-full space-x-2 max-w-[480px]">
+                      <div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-full"></div>
+                      <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-full"></div>
+                      <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24"></div>
+                    </div>
+                    <div class="flex items-center w-full space-x-2 max-w-[400px]">
+                      <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-full"></div>
+                      <div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-80"></div>
+                      <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-full"></div>
+                    </div>
+                    <div class="flex items-center w-full space-x-2 max-w-[480px]">
+                      <div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-full"></div>
+                      <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-full"></div>
+                      <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24"></div>
+                    </div>
+                    <div class="flex items-center w-full space-x-2 max-w-[440px]">
+                      <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-32"></div>
+                      <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24"></div>
+                      <div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-full"></div>
+                    </div>
+                    <div class="flex items-center w-full space-x-2 max-w-[360px]">
+                      <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-full"></div>
+                      <div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-80"></div>
+                      <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-full"></div>
+                    </div>
+                    <span class="sr-only">Loading...</span>
                   </div>
                 ) : (
                   data.activeItems.map((nft) => {
@@ -66,7 +102,11 @@ export default function Home() {
                   })
                 )
               ) : (
-                <div>Web3 Currently Not Enabled</div>
+                <div className="p-3 flex justify-center align-middle border-2 rounded-lg animate-pulse">
+                  <div className="text-center text-[#f2f6ff] text-xl">
+                    Web3 Currently Not Enabled
+                  </div>
+                </div>
               )}
             </div>
           </div>
